@@ -1,4 +1,4 @@
-import { TableDataComponent } from "./components/TableDataComponent";
+import { TableDataComponent } from "./components/TableData/TableDataComponent";
 
 function App() {
   return (
