@@ -16,6 +16,7 @@ export const VideosContainer = () => {
         // Cada vez que la cantidad de videos en screen aumenta
         // se va a sumar un url nuevo, con el id a solicitar 
         // (el counter funciona como id ya que los videos van de 1,2,3,4,etc)
+        // Aquí sale un warning pero es mejor así
         const videosApi = getUrlsArray.map(urlVid => urlVid);
         videosApi.push(defaultUrl + counter + '/');
         setGetUrlsArray(videosApi);

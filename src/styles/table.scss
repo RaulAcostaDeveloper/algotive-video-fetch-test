@@ -15,10 +15,10 @@
         padding-right: 15px;
         .dataBlock {
             width: 100%;
-            border-top: 2px solid rgba(56, 56, 56, 0.151);
+            border-top: 2px solid $border-gray-color;
             position: relative;
             .tableRow {
-                border-bottom: 2px solid rgba(56, 56, 56, 0.151);
+                border-bottom: 2px solid $border-gray-color;
                 .headerRow{
                     padding-top: 5px;
                     padding-bottom: 5px;
