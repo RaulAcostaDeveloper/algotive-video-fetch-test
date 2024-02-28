@@ -13,6 +13,14 @@
             width: 100%;
             .visibleArea {
                 width: 100%;
+                .noMoreVideosInStock {
+                    width: 100%;
+                    display: flex;
+                    justify-content: center;
+                    img {
+                        width: 50px;
+                    }
+                }
                 .videoBlockContainer {
                     width: 100%;
                     display: flex;
@@ -48,6 +56,24 @@
                         }
                         .infoContainer {
                             width: 80%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+@include laptop-L {
+    .videosContainer {
+        .videoElement {
+            .videoComponent {
+                .visibleArea {
+                    .videoBlockContainer {
+                        .iframeVideo {
+                            width: 60%;
+                        }
+                        .infoContainer {
+                            width: 60%;
                         }
                     }
                 }

@@ -83,7 +83,9 @@ export const VideoComponent = ({getUrl, updateCounter}: Props) => {
                 <div className="visibleArea">
                     { isLoading && <LoadingView/> }
                     { noMoreVideosInStock ? 
-                        <div>No more videos in stock ;) </div>
+                        <div className="noMoreVideosInStock">
+                            <img src="./images/pronto.gif" alt="no more videos in stock" />
+                        </div>
                         :
                         <div className="videoBlockContainer">
                             <iframe

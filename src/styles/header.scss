@@ -1,5 +1,6 @@
 .headerContainer {
     display: flex;
+    width: 100%;
     .menuButton {
         width: 30px;
         background-color: transparent;
@@ -12,6 +13,42 @@
         margin-left: 20px;
         img {
             width: 200px;
+        }
+    }
+    .openedMenu {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background-color: rgba(19, 19, 19, 0.534);
+        z-index: 1;
+        .insideMenu {
+            width: 300px;
+            height: 100%;
+            background-color: $algotive-white-color;
+            .headerMenu {
+                display: flex;
+                align-items: center;
+                border-bottom: 2px solid rgba(56, 56, 56, 0.151);
+                img {
+                    margin: 10px;
+                    width: 40px;
+                    border-radius: 50%;
+                }
+            }
+            .insideElement {
+                height: 50px;
+                display: flex;
+                align-items: center;
+                justify-content: left;
+                padding-left: 20px;
+                border-bottom: 2px solid rgba(56, 56, 56, 0.151);
+                a {
+                    text-decoration: none;
+                    color: black;
+                }
+            }
         }
     }
 }
