@@ -1,7 +1,6 @@
 import { LoadingView } from "../Loadings/LoadingView";
 import { ErrorView } from "../Loadings/ErrorView";
 import { TableRow } from "./TableRow";
-
 interface Video {
     author: string,
     created_at: string,
@@ -20,13 +19,11 @@ type Props = {
     askForMoreData: ()=>void,
 }
 // La vista de la tabla
-export const TableRender = ({dataTable, loadingData, fetchError, isDissabledButton, askForMoreData}: Props) => {
+export const TableRender = ({ dataTable, loadingData, fetchError, isDissabledButton, askForMoreData }: Props) => {
     return (
         <div className="tableRender">
-            <div>
-                <h3>Table</h3>
-            </div>
-            { loadingData?
+            <h3>Table</h3>
+            { loadingData ?
                 <LoadingView/>
                 :
                 <div>
@@ -34,16 +31,18 @@ export const TableRender = ({dataTable, loadingData, fetchError, isDissabledButt
                         <ErrorView/>
                         :
                         <div className="dataBlock">
-
                             <div>
-                                { dataTable.map( videoData =>
-                                    <TableRow videoData = { videoData }/>
+                                { dataTable.map((videoData, index) =>
+                                    <TableRow key={ index } videoData = { videoData }/>
                                 )}
                             </div>
                             <button 
                                 // Este botón se desactiva si no hay más data que solicitar seún la respuesta de la API 
                                 // Nótese el detalle en el title...
-                                className="getMoreDataButton" title={`get more data ${isDissabledButton ? ' (disabled)' : ''}`} onClick={()=>askForMoreData()} disabled = { isDissabledButton }>+</button>
+                                className="getMoreDataButton" 
+                                title={`get more data ${ isDissabledButton ? ' (disabled)' : '' }`} 
+                                onClick={()=>askForMoreData()} 
+                                disabled = { isDissabledButton }>+</button>
                         </div>
                     }
                 </div>

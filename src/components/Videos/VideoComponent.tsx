@@ -1,19 +1,21 @@
 import { useEffect, useRef, useState } from "react";
 import getVideosByPage from "../../ApiCalls/getVideosByPage";
 import { LoadingView } from "../Loadings/LoadingView";
-
 type Props = {
     getUrl: string,
     updateCounter: ()=> void,
 }
-export const VideoComponent = ({getUrl, updateCounter}: Props) => {
+export const VideoComponent = ({ getUrl, updateCounter }: Props) => {
     const [isLoading, setIsLoading] = useState(true);
+
     // URL del video de youtube (NO es el url de la api)
     const [videoUrl, setVideoUrl] = useState('');
     const [titleVideo, setTitleVideo] = useState('');
     const [releaseDateVideo, setReleaseDateVideo] = useState('');
+
     // Una prop para controlar el hecho de que en algún punto no hay más videos en la API
     const [noMoreVideosInStock, setNoMoreVideosInStock] = useState(false);
+
     // Una prop para controlar la vista del intersection observer
     const [isThisAreaVisible, setIsThisAreaVisible] = useState(false);
 
@@ -29,10 +31,12 @@ export const VideoComponent = ({getUrl, updateCounter}: Props) => {
                 }
             });
         });
+
         // Se está observando este componente (es parte del arreglo)
         if (videoRef.current) {
             observer.observe(videoRef.current);
         }
+
         // En caso que se des renderice este componente
         return ()=> {
             if (videoRef.current) {
@@ -42,13 +46,16 @@ export const VideoComponent = ({getUrl, updateCounter}: Props) => {
     },[]);
 
     useEffect(()=>{
+
         // Solo si el área es visible, va a llamar a la API 
         // para obtener el string que es el url del video
         if (isThisAreaVisible) {
+
             // Esta es una función auto ejecutable
             (async () => {
                 setIsLoading(true);
                 const response = await getVideosByPage(getUrl);
+                
                 // Si hay response es que si existe el video
                 if (response) {
                     setVideoUrl(response.url);
@@ -56,6 +63,7 @@ export const VideoComponent = ({getUrl, updateCounter}: Props) => {
                     setTitleVideo(response.title);
                     setReleaseDateVideo(response.release_date);                    
                 } else {
+
                     // Para fines prácticos se indica que no hay más videos
                     // Pero esta falta de video podría ser derivado de un error
                     setNoMoreVideosInStock(true);
@@ -68,6 +76,7 @@ export const VideoComponent = ({getUrl, updateCounter}: Props) => {
     // Este método se ejecuta cuando el iframe ha cargado satisfactoriamente
     const handleLoaded = () => {
         setIsLoading(false);
+        
         // Desde el componente padre, ejecuta este método para saber que este componente ha cargado
         // Y por lo tanto, puede preguntar si existe un nuevo video
         // Extra. Con que haya detectado 1 vez que no hay más videos, no tiene porqué buscar más

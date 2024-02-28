@@ -19,7 +19,7 @@ type ChartData = {
     between5and10: number;
     between10and15: number;
     moreThan15: number;
-  }
+}
 export const TableDataComponent = () => {
     const [dataTable, setDataTable] = useState<Array<Video>>([]);
     const [loadingData, setLoadingData] = useState<boolean>(false);
@@ -31,7 +31,7 @@ export const TableDataComponent = () => {
         between5and10:0,
         between10and15:0,
         moreThan15:0,
-      });
+    });
 
     useEffect(()=>{
         // Al inicio de la aplicación, solicita el primer stack de videos
@@ -62,7 +62,7 @@ export const TableDataComponent = () => {
     useEffect(()=>{
         // Calcular las diferencias de tiempo para el grafo
         setChartData(getDiferenceOfYears());
-    },[dataTable])
+    },[dataTable]);
 
     const handleAskMoreDataForTable = async() => {
         // Si hay más datos a solicitar para la tabla
@@ -104,14 +104,11 @@ export const TableDataComponent = () => {
             // Diferencia de años entre que salió el video versus la fecha de publicación del video
             if (diferenciaAnios < 5) {
                 lessThan5++;
-            }
-            if (diferenciaAnios >= 5 && diferenciaAnios < 10) {
+            } else if (diferenciaAnios >= 5 && diferenciaAnios < 10) {
                 between5and10++;
-            }
-            if (diferenciaAnios >= 10 && diferenciaAnios < 15) {
+            } else if (diferenciaAnios >= 10 && diferenciaAnios < 15) {
                 between10and15++;
-            }
-            if (diferenciaAnios >= 15) {
+            } else if (diferenciaAnios >= 15) {
                 moreThan15++;
             }
         });
@@ -126,8 +123,16 @@ export const TableDataComponent = () => {
     return (
         <div className="tableDataComponent">
             <h2 className="titleTable">Data from API</h2>
-            <TableRender dataTable={dataTable} loadingData={loadingData} fetchError = {fetchError} isDissabledButton = {nextUrl ? false : true} askForMoreData = {handleAskMoreDataForTable}/>
-            <GraficContainer chartData={chartData} loadingData={loadingData} fetchError={fetchError}/>
+            <TableRender 
+                dataTable={dataTable} 
+                loadingData={loadingData} 
+                fetchError = {fetchError} 
+                isDissabledButton = {nextUrl ? false : true} 
+                askForMoreData = {handleAskMoreDataForTable}/>
+            <GraficContainer 
+                chartData={chartData} 
+                loadingData={loadingData} 
+                fetchError={fetchError}/>
         </div>
     )
 }

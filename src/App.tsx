@@ -1,7 +1,6 @@
 import { HeaderContainer } from "./components/Header/HeaderContainer";
 import { TableDataComponent } from "./components/TableData/TableDataComponent";
 import { VideosContainer } from "./components/Videos/VideosContainer";
-
 function App() {
   return (
     <div className="App">
@@ -11,5 +10,5 @@ function App() {
     </div>
   );
 }
-
 export default App;
+  // ¡Gracias!

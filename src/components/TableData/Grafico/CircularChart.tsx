@@ -1,9 +1,15 @@
 import { Doughnut } from 'react-chartjs-2';
 import 'chart.js/auto';
-
-export const CircularChart = ({ data }: any) => {
+type ChartData = {
+  label: string,
+  difference:number,
+}
+type Props = {
+  data: ChartData[],
+}
+export const CircularChart = ({ data }: Props) => {
   const chartData = {
-    labels: data.map((item: { label: any; }) => item.label),
+    labels: data.map((item: { label: string; }) => item.label),
     datasets: [
       {
         label: 'Cantidad de videos',
@@ -13,20 +19,17 @@ export const CircularChart = ({ data }: any) => {
           'rgba(0, 140, 255, 0.2)',
           'rgba(255, 30, 0, 0.2)',
           'rgba(72, 207, 18, 0.2)',
-          // Agrega más colores según sea necesario
         ],
         borderColor: [
           'rgba(236, 182, 32, 1)',
           'rgba(0, 140, 255, 1)',
           'rgba(255, 30, 0, 1)',
           'rgba(72, 207, 18, 1)',
-          // Agrega más colores según sea necesario
         ],
         borderWidth: 1,
       },
     ],
   };
-
   return (
     <Doughnut data={chartData} className='CircularChart'/>
   )

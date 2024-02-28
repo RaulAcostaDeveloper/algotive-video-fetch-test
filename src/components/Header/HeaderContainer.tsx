@@ -1,17 +1,17 @@
 import { useState } from "react"
 
 export const HeaderContainer =()=> {
-    const [isOpenMenu, setIsOpenMenu] = useState(false)
+    const [isOpenMenu, setIsOpenMenu] = useState(false);
     return (
         <div className="headerContainer">
-            <button className="menuButton" onClick={()=>setIsOpenMenu(!isOpenMenu)}>
+            <button className="menuButton" onClick={ ()=>setIsOpenMenu(!isOpenMenu) } title="Open menu">
                 <img src="./icons/menu.png" alt="menu" />
             </button>
             <div className="headerImageContainer">
                 <img src="./images/algotivelogo.png" alt="algotive logo" />
             </div>
             { isOpenMenu &&
-                <div className="openedMenu" onClick={()=>setIsOpenMenu(false)}>
+                <div className="openedMenu" onClick={ ()=>setIsOpenMenu(false) }>
                     <div className="insideMenu">
                         <div className="headerMenu">
                             <img src="./images/algotive_logo.jpeg" alt="Algotive logo" />

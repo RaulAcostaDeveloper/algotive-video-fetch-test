@@ -1,22 +1,22 @@
 import { useEffect, useState } from "react"
 import { VideoComponent } from "./VideoComponent";
 const defaultUrl = 'http://localhost:8000/api/v1/videos/';
-export const VideosContainer =() => {
+export const VideosContainer = () => {
+
     // Un array de los url de los videos
     // A medida que los espacios aparecen, el arreglo suma urls
     // Esas url son para hacer los llamados a la api y obtener el url real del video
     // Ejemplo: get 'http://localhost:8000/api/v1/videos/1/' = 'youtube.com/urlReal'
     const [getUrlsArray, setGetUrlsArray] = useState<Array<string>>([]);
+
     // Un contador para la cantidad de videos a mostrar en pantalla
-    const [counter, setCounter] = useState(1); // puede iniciar en 0 y no hay necesidad de obtener el primer video
+    const [counter, setCounter] = useState(1);
     
-    // A ver porque no me acuerdo que hace esto
     useEffect(()=>{
         // Cada vez que la cantidad de videos en screen aumenta
         // se va a sumar un url nuevo, con el id a solicitar 
         // (el counter funciona como id ya que los videos van de 1,2,3,4,etc)
         const videosApi = getUrlsArray.map(urlVid => urlVid);
-        // Yo hago este videosApi.push porque estoy acostumbrado a manipular los datos del nuevo elemento antes de sumarlos
         videosApi.push(defaultUrl + counter + '/');
         setGetUrlsArray(videosApi);
     },[counter]);
@@ -29,9 +29,9 @@ export const VideosContainer =() => {
     return (
         <div className="videosContainer">
             <h2 className="videosTitle">Video rendering</h2>
-            {getUrlsArray.map((getUrl, index)=>
-                <div key={index + getUrl} className="videoElement">
-                    <VideoComponent getUrl = {getUrl} updateCounter={updateCounter}/>
+            { getUrlsArray.map((getUrl, index) =>
+                <div key={ index + getUrl } className="videoElement">
+                    <VideoComponent getUrl = { getUrl } updateCounter={ updateCounter }/>
                 </div>
             )}
         </div>

@@ -137,9 +137,12 @@ body {
   width: 100%;
 }
 .headerContainer .menuButton {
-  width: 30px;
+  width: 32px;
   background-color: transparent;
   border: none;
+}
+.headerContainer .menuButton img {
+  width: 100%;
 }
 .headerContainer .headerImageContainer {
   display: flex;
