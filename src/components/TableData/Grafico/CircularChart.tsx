@@ -13,7 +13,7 @@ export const CircularChart = ({ data }: Props) => {
     datasets: [
       {
         label: 'Cantidad de videos',
-        data: data.map((item: { difference: any; }) => item.difference),
+        data: data.map((item: { difference: number; }) => item.difference),
         backgroundColor: [
           'rgba(236, 182, 32, 0.2)',
           'rgba(0, 140, 255, 0.2)',
