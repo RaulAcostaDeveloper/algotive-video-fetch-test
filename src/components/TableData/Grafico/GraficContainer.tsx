@@ -13,7 +13,7 @@ type Props = {
     fetchError: boolean,
 }
 export const GraficContainer =({ chartData, loadingData, fetchError }: Props)=> {
-    // Data para la gráfica
+    // Data for the chart
     const videosData = [
         { label: 'Menos de 5 años', difference: chartData.lessThan5 },
         { label: 'Entre 5 y 10 años', difference: chartData.between5and10 },
@@ -42,3 +42,5 @@ export const GraficContainer =({ chartData, loadingData, fetchError }: Props)=> 
         </div>
     )
 }
+// Comentarios en español
+// Data para la gráfica

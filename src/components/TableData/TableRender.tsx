@@ -18,7 +18,7 @@ type Props = {
     isDissabledButton: boolean,
     askForMoreData: ()=>void,
 }
-// La vista de la tabla
+// The view of the table
 export const TableRender = ({ dataTable, loadingData, fetchError, isDissabledButton, askForMoreData }: Props) => {
     return (
         <div className="tableRender">
@@ -37,8 +37,8 @@ export const TableRender = ({ dataTable, loadingData, fetchError, isDissabledBut
                                 )}
                             </div>
                             <button 
-                                // Este botón se desactiva si no hay más data que solicitar seún la respuesta de la API 
-                                // Nótese el detalle en el title...
+                                // This button is disabled if there is no more data to request according to the API response
+                                // Notice the detail in the title...
                                 className="getMoreDataButton" 
                                 title={`get more data ${ isDissabledButton ? ' (disabled)' : '' }`} 
                                 onClick={()=>askForMoreData()} 
@@ -50,3 +50,7 @@ export const TableRender = ({ dataTable, loadingData, fetchError, isDissabledBut
         </div>
     )
 }
+// Comentarios en español
+// La vista de la tabla
+// Este botón se desactiva si no hay más data que solicitar seún la respuesta de la API 
+// Nótese el detalle en el title...

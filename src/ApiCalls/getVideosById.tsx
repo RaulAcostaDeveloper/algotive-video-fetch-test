@@ -1,24 +1,28 @@
 const apiUrl = 'http://localhost:8000/api/v1/videos/';
 const getVideosById = async(id: number) => {
     try {
-        // Simula tiempo de espera para que se vea el loading
+        // Simulates waiting time so that the loading is visible
         await new Promise( resolve => setTimeout(resolve, 500));
         const response = await fetch(apiUrl + `${id}/`);
         if (!response.ok) {
+            // Handling response types
             switch (response.status) {
                 case 404:
-                    console.log(response.status + ': El video con el id ' + id + ' no existe');
+                    console.log(response.status + ': The video with the id ' + id + ' does not exist');
                     break;
                 default:
                     break;
             }
-            throw new Error('La solicitud getVideosById falló con el estado ' + response.status);
+            throw new Error('The fetch getVideosById falls with the state: ' + response.status);
         } else {
             const data = await response.json(); 
             return data;
         }
     } catch (error) {
-        console.error('Error durante la solicitud:', error);
+        console.error('Error in fetch: ', error);
     }
 }
 export default getVideosById;
+// Comentarios en español
+// Simula tiempo de espera para que se vea el loading
+// Manejo de tipos de respuesta

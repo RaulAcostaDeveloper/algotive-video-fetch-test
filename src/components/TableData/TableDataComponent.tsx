@@ -25,7 +25,7 @@ export const TableDataComponent = () => {
     const [loadingData, setLoadingData] = useState<boolean>(false);
     const [fetchError, setFetchError] = useState<boolean>(false);
     const [nextUrl, setNextUrl] = useState<NextUrl>('');
-    // Cálculo de datos para el grafo
+    // Data calculation for the graph
     const [chartData, setChartData] = useState<ChartData>({
         lessThan5:0,
         between5and10:0,
@@ -34,15 +34,15 @@ export const TableDataComponent = () => {
     });
 
     useEffect(()=>{
-        // Al inicio de la aplicación, solicita el primer stack de videos
+        // At the start of the application, request the first stack of videos
         (async()=>{
             setLoadingData(true);
             const response = await getVideosByPage('http://localhost:8000/api/v1/videos/?page=1');
             setLoadingData(false);
-            // Manejo del error en el componente
+            // Error handling in the component
             if (response) {
                 setFetchError(false);
-                // Si existe una siguiente página, se guarda en este estado para su posterior llamado
+                // If there is a next page, it is stored in this state for later calling
                 setNextUrl(response.next);
                 setDataTable(response.results);
             } else {
@@ -54,31 +54,29 @@ export const TableDataComponent = () => {
 
     useEffect(()=>{
         if (fetchError) {
-            // Solo para ver cada que haya una respuesta vacía
+            // Only to see whenever there is an empty response
             console.log('fetchError Se perdió la conexión con el servidor');
         }
     },[fetchError]);
 
     useEffect(()=>{
-        // Calcular las diferencias de tiempo para el grafo
+        // Calculate the time differences for the graph
         setChartData(getDiferenceOfYears());
     },[dataTable]);
 
     const handleAskMoreDataForTable = async() => {
-        // Si hay más datos a solicitar para la tabla
+        // If there are more data to request for the table
         if (nextUrl) {
             setLoadingData(true);
-            // Se usa la misma url proporcionada por la api para llamar a la siguiente tabla
+            // Use the same URL provided by the API to call the next table
             const response = await getVideosByPage(nextUrl);
             setLoadingData(false);
             if (response) {
                 setFetchError(false);
                 const dataValue = dataTable.map(el=>el);
-                // !!! Revisar este typescript alert
-                // @ts-ignore
-                response.results.map(el=> dataValue.push(el));
+                response.results.map((el: Video)=> dataValue.push(el));
                 setDataTable(dataValue);
-                // response.next puede ser null o traer la siguiente liga
+                // response.next can be null or bring the next link
                 setNextUrl(response.next);
             } else {
                 setFetchError(true);
@@ -93,7 +91,7 @@ export const TableDataComponent = () => {
         let between5and10 = 0;
         let between10and15 = 0;
         let moreThan15 = 0;
-        // Analiza los datos obtenidos en la tabla y calcula las diferencias de años
+        // Analyzes the data obtained in the table and calculates the year differences
         dataTable.map(video =>{
             const inicio = new Date(video.release_date);
             const final = new Date(video.created_at);
@@ -101,7 +99,7 @@ export const TableDataComponent = () => {
             if (final.getMonth() < inicio.getMonth() || (final.getMonth() === inicio.getMonth() && final.getDate() < inicio.getDate())) {
                 diferenciaAnios--;
             }
-            // Diferencia de años entre que salió el video versus la fecha de publicación del video
+            // Year difference between when the video was released versus the video's publication date
             if (diferenciaAnios < 5) {
                 lessThan5++;
             } else if (diferenciaAnios >= 5 && diferenciaAnios < 10) {
@@ -136,3 +134,15 @@ export const TableDataComponent = () => {
         </div>
     )
 }
+// Comentarios en español
+// Cálculo de datos para el grafo
+// Al inicio de la aplicación, solicita el primer stack de videos
+// Manejo del error en el componente
+// Si existe una siguiente página, se guarda en este estado para su posterior llamado
+// Solo para ver cada que haya una respuesta vacía
+// Calcular las diferencias de tiempo para el grafo
+// Si hay más datos a solicitar para la tabla
+// Se usa la misma url proporcionada por la api para llamar a la siguiente tabla
+// response.next puede ser null o traer la siguiente liga
+// Analiza los datos obtenidos en la tabla y calcula las diferencias de años
+// Diferencia de años entre que salió el video versus la fecha de publicación del video
