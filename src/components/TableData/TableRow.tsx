@@ -13,17 +13,21 @@ type Props = {
     videoData: Video,
 }
 export const TableRow = ({videoData}: Props) => {
+    // Una prop para controlar la vista del componente.
     const [isOpen, setIsOpen] = useState(false);
     const handleClickHeader =() => {
         setIsOpen(!isOpen);
     }
+    // Para no poner el link completo, simplemente se puede copiar si el usuario lo necesita
+    // Un usuario no necesita ver un link
     const handleCopyLink =async()=> {
         try {
-          await navigator.clipboard.writeText('url aquí');
+          await navigator.clipboard.writeText(videoData.url);
         } catch (err) {
           console.error('Error al copiar: ', err);
         }
     }
+    // No se si estos datos deben estar transformados
     return (
         <div className="tableRow">
             <div className="headerRow" onClick={()=>handleClickHeader()}>

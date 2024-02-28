@@ -1,13 +1,13 @@
 import { HeaderContainer } from "./components/Header/HeaderContainer";
 import { TableDataComponent } from "./components/TableData/TableDataComponent";
-import { VideoContainer } from "./components/Videos/VideoContainer";
+import { VideosContainer } from "./components/Videos/VideosContainer";
 
 function App() {
   return (
     <div className="App">
       <HeaderContainer/>
       <TableDataComponent/>
-      <VideoContainer/>
+      <VideosContainer/>
     </div>
   );
 }

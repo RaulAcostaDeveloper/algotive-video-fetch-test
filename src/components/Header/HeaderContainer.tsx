@@ -1,7 +1,12 @@
 export const HeaderContainer =()=> {
     return (
-        <div>
-            <h1>Algotive Video Test</h1>
+        <div className="headerContainer">
+            <button className="menuButton">
+                <img src="./icons/menu.png" alt="menu" />
+            </button>
+            <div className="headerImageContainer">
+                <img src="./images/algotivelogo.png" alt="algotive logo" />
+            </div>
         </div>
     )
 }

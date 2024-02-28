@@ -1,5 +1,7 @@
 export const LoadingView = () => {
     return (
-        <div>loading...</div>
+        <div className="loadingView">
+            <img src="./icons/loading.gif" alt="Loading..." />
+        </div>
     )
 }

@@ -1,0 +1,57 @@
+.videosContainer {
+    width: 100%;
+    margin-top: 40px;
+    .videosTitle {
+        width: 100%;
+        text-align: center;
+    }
+    .videoElement {
+        width: 100%;
+        margin-top: 40px;
+        margin-bottom: 40px;
+        .videoComponent {
+            width: 100%;
+            .visibleArea {
+                width: 100%;
+                .videoBlockContainer {
+                    width: 100%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    flex-wrap: wrap;
+                    .iframeVideo {
+                        width: 90%;
+                        height: 315px;
+                        border-radius: 8px;
+                        -webkit-box-shadow: 2px 2px 2px 0px rgba(0,0,0,0.75);
+                        -moz-box-shadow: 2px 2px 2px 0px rgba(0,0,0,0.75);
+                        box-shadow: 2px 2px 2px 0px rgba(0,0,0,0.75);
+                    }
+                    .infoContainer {
+                        width: 90%;
+                        margin-top: 10px;
+                        margin-bottom: 10px;
+                    }
+                }
+            }
+        }
+    }
+}
+@include laptop {
+    .videosContainer {
+        .videoElement {
+            .videoComponent {
+                .visibleArea {
+                    .videoBlockContainer {
+                        .iframeVideo {
+                            width: 80%;
+                        }
+                        .infoContainer {
+                            width: 80%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

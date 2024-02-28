@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { VideoComponent } from "./VideoComponent";
 const defaultUrl = 'http://localhost:8000/api/v1/videos/';
-export const VideoContainer =() => {
+export const VideosContainer =() => {
     // Un array de los url de los videos
     // A medida que los espacios aparecen, el arreglo suma urls
     // Esas url son para hacer los llamados a la api y obtener el url real del video
@@ -27,9 +27,10 @@ export const VideoContainer =() => {
         setCounter(counter + 1);
     }
     return (
-        <div className="videoContainer">
+        <div className="videosContainer">
+            <h2 className="videosTitle">Video rendering</h2>
             {getUrlsArray.map((getUrl, index)=>
-                <div key={index + getUrl}>
+                <div key={index + getUrl} className="videoElement">
                     <VideoComponent getUrl = {getUrl} updateCounter={updateCounter}/>
                 </div>
             )}

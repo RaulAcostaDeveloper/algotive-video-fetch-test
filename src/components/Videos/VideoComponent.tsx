@@ -10,6 +10,8 @@ export const VideoComponent = ({getUrl, updateCounter}: Props) => {
     const [isLoading, setIsLoading] = useState(true);
     // URL del video de youtube (NO es el url de la api)
     const [videoUrl, setVideoUrl] = useState('');
+    const [titleVideo, setTitleVideo] = useState('');
+    const [releaseDateVideo, setReleaseDateVideo] = useState('');
     // Una prop para controlar el hecho de que en algún punto no hay más videos en la API
     const [noMoreVideosInStock, setNoMoreVideosInStock] = useState(false);
     // Una prop para controlar la vista del intersection observer
@@ -51,6 +53,8 @@ export const VideoComponent = ({getUrl, updateCounter}: Props) => {
                 if (response) {
                     setVideoUrl(response.url);
                     setNoMoreVideosInStock(false);
+                    setTitleVideo(response.title);
+                    setReleaseDateVideo(response.release_date);                    
                 } else {
                     // Para fines prácticos se indica que no hay más videos
                     // Pero esta falta de video podría ser derivado de un error
@@ -76,20 +80,27 @@ export const VideoComponent = ({getUrl, updateCounter}: Props) => {
     return (
         <div ref={ videoRef } className="videoComponent">
             { isThisAreaVisible &&
-                <div>
+                <div className="visibleArea">
                     { isLoading && <LoadingView/> }
                     { noMoreVideosInStock ? 
                         <div>No more videos in stock ;) </div>
                         :
-                        <iframe
-                            src={ videoUrl }
-                            frameBorder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowFullScreen
-                            title="Embedded YouTube Video"
-                            width="320" 
-                            height="315"
-                            onLoad={ handleLoaded }></iframe>
+                        <div className="videoBlockContainer">
+                            <iframe
+                                className="iframeVideo"
+                                src={ videoUrl }
+                                frameBorder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowFullScreen
+                                title="Embedded YouTube Video"
+                                // width="320" 
+                                // height="315"
+                                onLoad={ handleLoaded }></iframe>
+                                <div className="infoContainer">
+                                    <h3>{ titleVideo }</h3>
+                                    <p>Release date: { releaseDateVideo }</p>
+                                </div>
+                        </div>
                     }
                 </div>
             }

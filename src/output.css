@@ -7,51 +7,98 @@ body {
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
 
-.TableRender {
-  border-top: 2px solid rgba(56, 56, 56, 0.151);
+.tableDataComponent {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 }
-.TableRender .tableRow {
+.tableDataComponent .titleTable {
+  width: 100%;
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+.tableDataComponent .tableRender {
+  width: 320px;
+  margin-bottom: 80px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.tableDataComponent .tableRender .dataBlock {
+  width: 100%;
+  border-top: 2px solid rgba(56, 56, 56, 0.151);
+  position: relative;
+}
+.tableDataComponent .tableRender .dataBlock .tableRow {
   border-bottom: 2px solid rgba(56, 56, 56, 0.151);
 }
-.TableRender .tableRow .headerRow {
+.tableDataComponent .tableRender .dataBlock .tableRow .headerRow {
   padding-top: 5px;
   padding-bottom: 5px;
   display: flex;
   align-items: center;
   cursor: pointer;
 }
-.TableRender .tableRow .headerRow .botonDespliegue {
+.tableDataComponent .tableRender .dataBlock .tableRow .headerRow .botonDespliegue {
   margin-left: 10px;
   margin-right: 10px;
   width: 30px;
   height: 30px;
-  background-color: aquamarine;
+  background-color: rgb(247, 167, 0);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.TableRender .tableRow .headerRow .botonDespliegue img {
+.tableDataComponent .tableRender .dataBlock .tableRow .headerRow .botonDespliegue img {
   width: 50%;
 }
-.TableRender .tableRow .dataName {
-  width: 100px;
+.tableDataComponent .tableRender .dataBlock .tableRow .dataName {
+  width: 110px;
   font-weight: bold;
 }
-.TableRender .tableRow .dataInfo {
-  margin-right: 10px;
+.tableDataComponent .tableRender .dataBlock .tableRow .dataInfo {
+  width: 150px;
 }
-.TableRender .tableRow .insideRow {
+.tableDataComponent .tableRender .dataBlock .tableRow .insideRow {
   display: flex;
   align-items: center;
   margin-left: 50px;
   padding-top: 10px;
   padding-bottom: 10px;
 }
-.TableRender .tableRow .copyUrlButton img {
+.tableDataComponent .tableRender .dataBlock .tableRow .copyUrlButton {
+  background-color: rgb(2, 49, 103);
+  color: white;
+  padding: 5px;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  -webkit-box-shadow: 4px 4px 2px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 4px 4px 2px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 4px 4px 2px 0px rgba(0, 0, 0, 0.75);
+}
+.tableDataComponent .tableRender .dataBlock .tableRow .copyUrlButton img {
+  margin-left: 5px;
   width: 20px;
 }
+.tableDataComponent .tableRender .dataBlock .getMoreDataButton {
+  margin: 10px;
+  padding: 10px;
+  background-color: rgb(247, 167, 0);
+  color: white;
+  position: absolute;
+  font-size: 20px;
+  right: 0;
+  border-radius: 4px;
+}
 
+@media only screen and (min-width: 768px) {
+  .tableDataComponent .tableRender {
+    margin-right: 40px;
+  }
+}
 .errorView {
   width: 100%;
   display: flex;
@@ -60,6 +107,96 @@ body {
 }
 .errorView img {
   width: 200px;
+}
+
+.loadingView {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.loadingView img {
+  width: 200px;
+}
+
+.tableDataComponent .graficContainer {
+  width: 320px;
+}
+.tableDataComponent .graficContainer .description {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+@media only screen and (min-width: 768px) {
+  .tableDataComponent .graficContainer {
+    margin-left: 40px;
+  }
+}
+.headerContainer {
+  display: flex;
+}
+.headerContainer .menuButton {
+  width: 30px;
+  background-color: transparent;
+  border: none;
+}
+.headerContainer .headerImageContainer {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  margin-left: 20px;
+}
+.headerContainer .headerImageContainer img {
+  width: 200px;
+}
+
+.videosContainer {
+  width: 100%;
+  margin-top: 40px;
+}
+.videosContainer .videosTitle {
+  width: 100%;
+  text-align: center;
+}
+.videosContainer .videoElement {
+  width: 100%;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+.videosContainer .videoElement .videoComponent {
+  width: 100%;
+}
+.videosContainer .videoElement .videoComponent .visibleArea {
+  width: 100%;
+}
+.videosContainer .videoElement .videoComponent .visibleArea .videoBlockContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.videosContainer .videoElement .videoComponent .visibleArea .videoBlockContainer .iframeVideo {
+  width: 90%;
+  height: 315px;
+  border-radius: 8px;
+  -webkit-box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.75);
+}
+.videosContainer .videoElement .videoComponent .visibleArea .videoBlockContainer .infoContainer {
+  width: 90%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+@media only screen and (min-width: 1024px) {
+  .videosContainer .videoElement .videoComponent .visibleArea .videoBlockContainer .iframeVideo {
+    width: 80%;
+  }
+  .videosContainer .videoElement .videoComponent .visibleArea .videoBlockContainer .infoContainer {
+    width: 80%;
+  }
 }
 
 /*# sourceMappingURL=output.css.map */

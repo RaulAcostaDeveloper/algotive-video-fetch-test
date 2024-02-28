@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import getVideosByPage from "../../ApiCalls/getVideosByPage";
 import { TableRender } from "./TableRender";
 import { GraficContainer } from "./Grafico/GraficContainer";
+
 type NextUrl = string|null;
 interface Video {
     author: string,
@@ -124,17 +125,9 @@ export const TableDataComponent = () => {
 
     return (
         <div className="tableDataComponent">
-            <p>Table Data Component</p>
-            <div>
-                <TableRender dataTable={dataTable} loadingData={loadingData} fetchError = {fetchError}/>
-            </div>
-            <div>
-                {/* Este botón se desactiva si no hay más data que solicitar seún la respuesta de la API */}
-                <button onClick={()=>handleAskMoreDataForTable()} disabled = {nextUrl ? false:true}>+</button>
-            </div>
-            <div>
-                <GraficContainer chartData={chartData} loadingData={loadingData} fetchError={fetchError}/>
-            </div>
+            <h2 className="titleTable">Data from API</h2>
+            <TableRender dataTable={dataTable} loadingData={loadingData} fetchError = {fetchError} isDissabledButton = {nextUrl ? false : true} askForMoreData = {handleAskMoreDataForTable}/>
+            <GraficContainer chartData={chartData} loadingData={loadingData} fetchError={fetchError}/>
         </div>
     )
 }

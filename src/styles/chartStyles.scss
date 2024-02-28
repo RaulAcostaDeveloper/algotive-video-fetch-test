@@ -1,0 +1,16 @@
+.tableDataComponent {
+    .graficContainer {
+        width: 320px;
+        .description {
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+    }
+}
+@include tablet {
+    .tableDataComponent {
+        .graficContainer {
+            margin-left: 40px;
+        }
+    }
+}

@@ -1,4 +1,12 @@
+// Siempre se importan primero las variables o mixins en sass
+@import './styles/colors.scss';
+@import './styles/breakpoints.scss';
+
 @import './styles/global.scss';
 @import './styles/table.scss';
 @import './styles/fonts.scss';
 @import './styles/errorView.scss';
+@import './styles/loadingView.scss';
+@import './styles/chartStyles.scss';
+@import './styles/header.scss';
+@import './styles/videosStyles.scss';

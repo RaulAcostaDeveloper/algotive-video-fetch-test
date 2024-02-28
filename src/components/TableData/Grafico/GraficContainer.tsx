@@ -23,9 +23,9 @@ export const GraficContainer =({chartData, loadingData, fetchError}: Props)=> {
         // Añade más datos según sea necesario
     ];
     return (
-        <div className="GraficContainer">
-            <h2>Diferencia de Tiempo</h2>
-            <p>En este gráfico se analiza la frecuencia de la diferencia de tiempo que ocurre entre la fecha de creación del video y la fecha de su publicación en base a los datos de la tabla.</p>
+        <div className="graficContainer">
+            <h3 className="description">Gráfico de diferencia de Tiempo</h3>
+            <p className="description">En este gráfico se analiza la frecuencia de la diferencia de tiempo que ocurre entre la fecha de creación del video y la fecha de su publicación en base a los datos de la tabla.</p>
             {loadingData?
                 <LoadingView/>
                 :
