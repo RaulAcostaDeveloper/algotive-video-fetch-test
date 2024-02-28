@@ -11,7 +11,7 @@ export const HeaderContainer =()=> {
                 <img src="./images/algotivelogo.png" alt="algotive logo" />
             </div>
             { isOpenMenu &&
-                <div className="openedMenu" onClick={ ()=>setIsOpenMenu(false) }>
+                <div className="openedMenu" title="Click to close" onClick={ ()=>setIsOpenMenu(false) }>
                     <div className="insideMenu">
                         <div className="headerMenu">
                             <img src="./images/algotive_logo.jpeg" alt="Algotive logo" />
