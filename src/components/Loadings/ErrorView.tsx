@@ -1,5 +1,7 @@
 export const ErrorView = () => {
     return (
-        <div>Error</div>
+        <div className="errorView">
+            <img src="./images/error404.png" alt="Error" />
+        </div>
     )
 }

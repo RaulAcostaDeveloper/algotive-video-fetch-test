@@ -3,4 +3,63 @@
   padding: 0;
 }
 
+body {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+.TableRender {
+  border-top: 2px solid rgba(56, 56, 56, 0.151);
+}
+.TableRender .tableRow {
+  border-bottom: 2px solid rgba(56, 56, 56, 0.151);
+}
+.TableRender .tableRow .headerRow {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+.TableRender .tableRow .headerRow .botonDespliegue {
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 30px;
+  height: 30px;
+  background-color: aquamarine;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.TableRender .tableRow .headerRow .botonDespliegue img {
+  width: 50%;
+}
+.TableRender .tableRow .dataName {
+  width: 100px;
+  font-weight: bold;
+}
+.TableRender .tableRow .dataInfo {
+  margin-right: 10px;
+}
+.TableRender .tableRow .insideRow {
+  display: flex;
+  align-items: center;
+  margin-left: 50px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.TableRender .tableRow .copyUrlButton img {
+  width: 20px;
+}
+
+.errorView {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.errorView img {
+  width: 200px;
+}
+
 /*# sourceMappingURL=output.css.map */

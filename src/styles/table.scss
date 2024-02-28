@@ -1,0 +1,46 @@
+.TableRender {
+    border-top: 2px solid rgba(56, 56, 56, 0.151);
+    .tableRow {
+        border-bottom: 2px solid rgba(56, 56, 56, 0.151);
+        .headerRow{
+            padding-top: 5px;
+            padding-bottom: 5px;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            .botonDespliegue {
+                margin-left: 10px;
+                margin-right: 10px;
+                width: 30px;
+                height: 30px;
+                background-color: aquamarine;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                img {
+                    width: 50%;
+                }
+            }
+        }
+        .dataName {
+            width: 100px;
+            font-weight: bold;
+        }
+        .dataInfo {
+            margin-right: 10px;
+        }
+        .insideRow {
+            display: flex;
+            align-items: center;
+            margin-left: 50px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+        .copyUrlButton {
+            img {
+                width: 20px;
+            }
+        }
+    }
+}

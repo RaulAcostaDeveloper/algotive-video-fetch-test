@@ -1,5 +1,5 @@
-// import { Doughnut } from 'react-chartjs-2';
-// import 'chart.js/auto';
+import { Doughnut } from 'react-chartjs-2';
+import 'chart.js/auto';
 
 export const CircularChart = ({ data }: any) => {
   const chartData = {
@@ -28,7 +28,6 @@ export const CircularChart = ({ data }: any) => {
   };
 
   return (
-    <div>chart</div>
+    <Doughnut data={chartData} className='CircularChart'/>
   )
-  // <Doughnut data={chartData} className='CircularChart'/>;
-};
+}
